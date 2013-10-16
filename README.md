@@ -1,4 +1,4 @@
-# Sortable Web Parts for SharePoint 2013
+# Sortable Web Parts for SharePoint
 
 While SharePoint 2013 officially supports non-Internet Explorer browsers, some of their legacy features still are using ActiveX. Unfortunately for non-Internet Explorer users, this means that these features aren't available. One particular feature that is unavailable is sortable (drag and drop) web parts while editing a page.
 
