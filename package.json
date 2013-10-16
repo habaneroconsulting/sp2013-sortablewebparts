@@ -1,5 +1,5 @@
 {
-  "name": "Sortable-Web-Parts",
+  "name": "sp-sortablewebparts",
   "description": "Implements sortable (drag and drop) web parts for non-Internet Explorer browsers on SharePoint 2013.",
   "version": "1.0.0",
   "author": "Habanero Consulting Group",
