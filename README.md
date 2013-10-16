@@ -4,7 +4,7 @@ While SharePoint 2013 officially supports non-Internet Explorer browsers, some o
 
 ## How It Works
 
-Adding sortable web parts requires reimplementing the [`dragdrop`](http://msdn.microsoft.com/en-us/library/4k1s9s90(v=vs.71).aspx) ActiveX control which SharePoint uses for sorting web parts. However, rather than just implementing the one function in JavaScript, it is easier to replace the entire piece of funtionality using [jQuery UI's Sortable](http://jqueryui.com/sortable/) plugin.
+Adding sortable web parts requires reimplementing the [`dragdrop`](http://msdn.microsoft.com/en-us/library/4k1s9s90.aspx) ActiveX control which SharePoint uses for sorting web parts. However, rather than just implementing the one function in JavaScript, it is easier to replace the entire piece of funtionality using [jQuery UI's Sortable](http://jqueryui.com/sortable/) plugin.
 
 ## Getting Started
 
