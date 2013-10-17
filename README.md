@@ -25,6 +25,25 @@ This functionality can be adding to your SharePoint 2013 solution in two ways: b
 
 ### Installing it in your SharePoint 2013 solution
 
+## Build Instructions
+
+1. Install [NodeJS](http://nodejs.org/)
+    - If you're on windows make sure you reboot afterwards so that the user PATH variables can be set properly. Otherwise node modules you install will not be command line executable
+    - http://nodejs.org/
+
+3. Install Grunt and Grunt CLI.
+
+        npm -g install grunt grunt-cli
+
+4. Run `npm install` from command line at root project folder
+
+    This will read the *package.json* file and pull in all required node modules and put into a directory called *node_modules*. This directory is generated so it can be deleted and should not be checked into source control. If deleted running `npm install` will re-create it.
+    
+5. Use `grunt` to build:
+    - `grunt plugin` will minify the source and copy the vendor files.
+    - `grunt bookmark` will create the bookmarklet by using *grunt-bookmarklet-thingy* and minifying the source.
+    - `grunt vsproject` will create a Visual Studio project to deploy to SharePoint.
+
 ## License
 
 Copyright (c) 2013 Habanero Consulting Group
