@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 			bookmarlet: 'sp-sortablewebparts.bookmarklet.js',
 			main: 'sp-sortablewebparts.js',
 			plugin: 'sp-sortablewebparts.min.js'
-		}
+		},
 
 		pkg: grunt.file.readJSON('package.json'),
 
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 					'jquery-min',
 					'jquery-ui-min'
 				],
-				body: '<%= dirs.src %>/<%= files.plugin %>',
+				body: '<%= dirs.src %>/<%= files.main %>',
 				out: '<%= dirs.bookmarklet %>/<%= files.bookmarlet %>',
 				amdify: false,
 				timestamp: false
