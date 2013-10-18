@@ -168,7 +168,7 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('vs', [
-		'clean:vs', 'jshint', 'copy:vs', 'uglify:vs'
+		'clean:vs', 'jshint', 'copy:vs', 'uglify:vs', 'compress:vs'
 	]);
 
 	grunt.registerTask('default', [
