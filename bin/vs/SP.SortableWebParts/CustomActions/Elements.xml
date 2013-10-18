@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<!-- 0 to 1000 level: Core libs/frameworks -->
+	<CustomAction
+		Id="jquery-1.10.2"
+		Location="ScriptLink"
+		ScriptSrc="~sitecollection/Style Library/Scripts/vendor/jquery-1.10.2.min.js"
+		Sequence="0" />
+
+	<CustomAction
+		Id="jquery-ui-1.10.3"
+		Location="ScriptLink"
+		ScriptSrc="~sitecollection/Style Library/Scripts/vendor/jquery-ui-1.10.3.custom.min.js"
+		Sequence="1" />
+	
+	<!-- 10000 level: shared classes/libs -->
+
+	<!-- 20000 level: module inclusion -->
+	<CustomAction
+		Id="sp-sortablewebparts"
+		Location="ScriptLink"
+		ScriptSrc="~sitecollection/Style Library/Scripts/SP.SortableWebParts/sp-sortablewebparts.min.js"
+		Sequence="20000" />
+	
+</Elements>

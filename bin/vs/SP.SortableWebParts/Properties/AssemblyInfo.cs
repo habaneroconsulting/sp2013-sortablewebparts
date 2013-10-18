@@ -6,12 +6,12 @@ using System.Security;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Habanero.SortableWebParts")]
+[assembly: AssemblyTitle("SP.SortableWebParts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Habanero.SortableWebParts")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyProduct("SP.SortableWebParts")]
+[assembly: AssemblyCopyright("Copyright © 2013 Habanero Consulting Group")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,7 +21,7 @@ using System.Security;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d3125d27-4f4f-4e45-906e-1e9949fa7111")]
+[assembly: Guid("226788af-a320-44a0-8f10-762f6503ff69")]
 
 // Version information for an assembly consists of the following four values:
 //
