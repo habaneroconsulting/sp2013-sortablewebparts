@@ -4,7 +4,7 @@
  * Habanero Consulting Group - Licensed under MIT
  */
 
-(function($, window, document, undefined) {
+(function ($, window, document, undefined) {
 	'use strict';
 
 	var module = {},
@@ -13,11 +13,7 @@
 			webpart: '.ms-webpartzone-cell',
 			zone: '.ms-SPZone'
 		},
-		elements = {
-			body: $('body'),
-			webpartZone: $(classes.zone),
-			webparts: $(classes.webpart)
-		},
+		elements,
 		emptyWebpartId = 'MSOZone_EmptyZoneCell',
 		nextCell = classes.placeholder + ' + ' + classes.webpart + ', ' +
 					classes.placeholder + ' + #' + emptyWebpartId;
@@ -29,7 +25,7 @@
 	 */
 	module.prototypeSetup = function () {
 		// Updating this could break other uses of this call, but none are found
-		HTMLDivElement.prototype.swapNode = function(original) {
+		HTMLDivElement.prototype.swapNode = function (original) {
 			var $original = $(original);
 
 			// Remove the custom styling added by the sortable plugin
@@ -42,7 +38,7 @@
 		};
 
 		// Remove is done in the swap node function above this
-		HTMLDivElement.prototype.removeNode = function() { return false; };
+		HTMLDivElement.prototype.removeNode = function () { return false; };
 	};
 
 	/**
@@ -51,6 +47,13 @@
 	module.setup = function () {
 		module.prototypeSetup();
 
+		// Cache the various jQuery elements we need
+		elements = {
+			body: $('body'),
+			webpartZone: $(classes.zone),
+			webparts: $(classes.webpart)
+		};
+		
 		// Initialise the jQuery UI Sortable plugin
 		// Note that we are not using any of the callback functions
 		// In fact we remove the node even before it is dropped
@@ -65,7 +68,7 @@
 		// happens after the element is inserted in its new position.
 		// MoveWebPart requires the moving web part to be in its original spot,
 		// first.
-		elements.webparts.on('mouseup', function() {
+		elements.webparts.on('mouseup', function () {
 			// Check to see if the empty web part is previous to the dropped
 			// item. This is needed since on empty web part zones, web parts
 			// that are moved into the zone are put below both the "Add a Web
@@ -89,7 +92,7 @@
 				window.MSOLayout_iBar.setAttribute('goodDrop', true);
 
 				// This function reorders the web parts and saves their position
-				window.MSOLayout_MoveWebPart(this, destination);				
+				window.MSOLayout_MoveWebPart(this, destination);
 			}
 		});
 	};
