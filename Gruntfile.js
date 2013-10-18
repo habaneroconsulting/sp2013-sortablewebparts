@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 			plugin: '<%= dirs.build %>/plugin',
 			src: 'src',
 			vs: '<%= dirs.build %>/vs',
-			vsScripts: '<%= dirs.build %>/vs/Habanero.SortableWebParts/SortableWebParts/Scripts'
+			vsScripts: '<%= dirs.build %>/vs/SP.SortableWebParts/Style Library/Scripts'
 		},
 
 		files: {
@@ -96,7 +96,8 @@ module.exports = function(grunt) {
 			},
 			vs: {
 				files: {
-					'<%= dirs.vsScripts %>/<%= files.plugin %>': ['<%= dirs.src %>/<%= files.main %>']
+					'<%= dirs.vsScripts %>/SP.SortableWebParts/<%= files.plugin %>':
+						['<%= dirs.src %>/<%= files.main %>']
 				},
 				options: {
 					preserveComments: 'some'
@@ -136,14 +137,14 @@ module.exports = function(grunt) {
 		compress: {
 			vs: {
 				options: {
-					archive: '<%= dirs.vs %>/Habanero.SortableWebParts.zip'
+					archive: '<%= dirs.vs %>/SP.SortableWebParts.zip'
 				},
 				files: [
 					{
 						cwd: 'bin/vs/',
 						expand: true,
 						filter: function (name) {
-							return name.indexOf('.zip') === -1
+							return name.indexOf('.zip') === -1;
 						},
 						src: '**/*'
 					}

@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3125D27-4F4F-4E45-906E-1E9949FA7111}</ProjectGuid>
+    <ProjectGuid>{226788AF-A320-44A0-8F10-762F6503FF69}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Habanero.SortableWebParts</RootNamespace>
-    <AssemblyName>Habanero.SortableWebParts</AssemblyName>
+    <RootNamespace>SP.SortableWebParts</RootNamespace>
+    <AssemblyName>SP.SortableWebParts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetOfficeVersion>15.0</TargetOfficeVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <SandboxedSolution>False</SandboxedSolution>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,37 +41,45 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebControls\ScriptRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CustomActions\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{229c2a0e-09c8-4f82-829f-0b711fa129bc}</SharePointProjectItemId>
+    </None>
     <None Include="Features\Site\Site.feature">
-      <FeatureId>{da5d3279-b4e8-42e5-9028-99d0aa3f29fd}</FeatureId>
+      <FeatureId>{344c7296-1d70-48bb-ad57-5f72432824c3}</FeatureId>
     </None>
     <None Include="key.snk" />
     <None Include="Package\Package.package">
-      <PackageId>{9d334654-97d2-41b9-8f65-c97291f0e3d4}</PackageId>
+      <PackageId>{71224f0c-9695-4c40-8f57-3c93bd7e9c1b}</PackageId>
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
-    <None Include="SortableWebParts\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{8ecdd896-67e8-4084-9329-c0f0b5f50826}</SharePointProjectItemId>
+    <None Include="Style Library\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7d4401c2-a450-46c2-a410-a0e8c988d40e}</SharePointProjectItemId>
     </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="CustomActions\Elements.xml" />
     <Content Include="Features\Site\Site.Template.xml">
       <DependentUpon>Site.feature</DependentUpon>
     </Content>
-    <Content Include="SortableWebParts\Elements.xml" />
-    <Content Include="SortableWebParts\Scripts\sp-sortablewebparts.min.js" />
-    <Content Include="SortableWebParts\Scripts\vendor\jquery-1.10.2.min.js" />
-    <Content Include="SortableWebParts\Scripts\vendor\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Style Library\Elements.xml" />
+    <Content Include="Style Library\Scripts\SP.SortableWebParts\sp-sortablewebparts.min.js" />
+    <Content Include="Style Library\Scripts\vendor\jquery-1.10.2.min.js" />
+    <Content Include="Style Library\Scripts\vendor\jquery-ui-1.10.3.custom.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
