@@ -27,7 +27,7 @@ This functionality can be adding to your SharePoint 2013 solution in multiple wa
     - Visual Studio Premium 2012
     - [Microsoft Office Developer Tools for Visual Studio 2012](http://msdn.microsoft.com/en-us/office/apps/fp123627.aspx)
     
-2. Get the latest stable version of the included solution, found under
+2. Get the latest stable version of the included solution, found under:
 [`/bin/vs/SP.SortableWebParts.zip`](https://github.com/habaneroconsulting/sp-sortablewebparts/raw/master/bin/vs/SP.SortableWebParts.zip).
 3. Open the solution file using Visual Studio.
 4. Make sure you have both the Solution Explorer view and the Properties view open.
@@ -49,20 +49,18 @@ Otherwise, you can contact the author over Twitter at [@cwlparsons](https://twit
 
 ## Build Instructions
 
-1. Install [NodeJS](http://nodejs.org/)
-    - If you're on windows make sure you reboot afterwards so that the user PATH variables can be set properly. Otherwise node modules you install will not be command line executable
-    - http://nodejs.org/
+1. Install [NodeJS](http://nodejs.org/).
 
 2. Install Grunt and Grunt CLI.
 
         npm -g install grunt grunt-cli
-3. Run `npm install` from command line at root project folder
+3. Run `npm install` from command line at root project folder.
     This will read the *package.json* file and pull in all required node modules and put into a directory called *node_modules*. This directory is generated so it can be deleted and should not be checked into source control. If deleted running `npm install` will re-create it.
 4. Use `grunt` to build:
     - `grunt plugin` will minify the source and copy the vendor files.
     - `grunt bookmark` will create the bookmarklet by using *grunt-bookmarklet-thingy* and minifying the source.
     - `grunt vs` will create a Visual Studio project to deploy to SharePoint.
-    - `grunt` will build all three
+    - `grunt` will build all three.
 
 ## License
 
