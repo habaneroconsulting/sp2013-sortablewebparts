@@ -12,6 +12,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bookmarklet-thingy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
@@ -127,6 +128,24 @@ module.exports = function(grunt) {
 						dest: '<%= dirs.vsScripts %>/vendor',
 						cwd: '<%= dirs.src %>/vendor',
 						expand: true
+					}
+				]
+			}
+		},
+
+		compress: {
+			vs: {
+				options: {
+					archive: '<%= dirs.vs %>/Habanero.SortableWebParts.zip'
+				},
+				files: [
+					{
+						cwd: 'bin/vs/',
+						expand: true,
+						filter: function (name) {
+							return name.indexOf('.zip') === -1
+						},
+						src: '**/*'
 					}
 				]
 			}
