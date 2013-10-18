@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="9d334654-97d2-41b9-8f65-c97291f0e3d4" solutionId="9d334654-97d2-41b9-8f65-c97291f0e3d4" resetWebServer="false" sharePointProductVersion="15.0" name="Habanero.SortableWebParts" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="da5d3279-b4e8-42e5-9028-99d0aa3f29fd" />
+  </features>
+</package>
