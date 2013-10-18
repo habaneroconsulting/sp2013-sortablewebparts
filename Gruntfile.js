@@ -22,8 +22,11 @@ module.exports = function(grunt) {
 		dirs: {
 			build: 'bin',
 			bookmarklet: '<%= dirs.build %>/bookmarklet',
+			pkg: 'pkg',
 			plugin: '<%= dirs.build %>/plugin',
-			src: 'src'
+			src: 'src',
+			vs: '<%= dirs.build %>/vs',
+			vsScripts: '<%= dirs.build %>/vs/Habanero.SortableWebParts/SortableWebParts/Scripts'
 		},
 
 		files: {
@@ -36,7 +39,8 @@ module.exports = function(grunt) {
 
 		clean: {
 			bookmarklet: '<%= dirs.bookmarklet %>/*',
-			plugin: '<%= dirs.plugin %>/*'
+			plugin: '<%= dirs.plugin %>/*',
+			vs: '<%= dirs.vs %>/*'
 		},
 
 		jshint: {
@@ -88,6 +92,14 @@ module.exports = function(grunt) {
 				options: {
 					preserveComments: 'some'
 				}
+			},
+			vs: {
+				files: {
+					'<%= dirs.vsScripts %>/<%= files.plugin %>': ['<%= dirs.src %>/<%= files.main %>']
+				},
+				options: {
+					preserveComments: 'some'
+				}
 			}
 		},
 
@@ -97,6 +109,22 @@ module.exports = function(grunt) {
 					{
 						src: ['**', '.**/*'],
 						dest: '<%= dirs.plugin %>/vendor',
+						cwd: '<%= dirs.src %>/vendor',
+						expand: true
+					}
+				]
+			},
+			vs: {
+				files: [
+					{
+						src: ['**', '.**/*'],
+						dest: '<%= dirs.vs %>',
+						cwd: '<%= dirs.pkg %>',
+						expand: true
+					},
+					{
+						src: ['**', '.**/*'],
+						dest: '<%= dirs.vsScripts %>/vendor',
 						cwd: '<%= dirs.src %>/vendor',
 						expand: true
 					}
@@ -119,7 +147,11 @@ module.exports = function(grunt) {
 		'clean:bookmarklet', 'jshint', 'bookmarklet'
 	]);
 
-	grunt.registerTask('build', [
-		'plugin', 'bookmark'
+	grunt.registerTask('vs', [
+		'clean:vs', 'jshint', 'copy:vs', 'uglify:vs'
+	]);
+
+	grunt.registerTask('default', [
+		'plugin', 'bookmark', 'vs'
 	]);
 };
