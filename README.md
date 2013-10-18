@@ -19,27 +19,40 @@ This functionality can be adding to your SharePoint 2013 solution in multiple wa
 3. Click on the *Sortable Web Parts* bookmark in your bookmark bar.
 4. Try sorting web parts to verify that the script is working.
 
-### Installing it in your SharePoint 2013 solution
+### Installing it against your on-premise SharePoint 2013 or Office 365 solution
 
-#### Using the included sandbox solution
-
-1. You will need the following developer tools:
+You will need the following developer tools:
     - Visual Studio Premium 2012
     - [Microsoft Office Developer Tools for Visual Studio 2012](http://msdn.microsoft.com/en-us/office/apps/fp123627.aspx)
-    
-2. Get the latest stable version of the included solution, found under:
-[`/bin/vs/SP.SortableWebParts.zip`](https://github.com/habaneroconsulting/sp-sortablewebparts/raw/master/bin/vs/SP.SortableWebParts.zip).
-3. Open the solution file using Visual Studio.
-4. Make sure you have both the Solution Explorer view and the Properties view open.
-5. Click on the project *SP.SortableWebParts* in the Solution Explorer, and under Properties > Site URL,
-enter your site collection URL.
-6. Right-click on the project, and press Deploy.
-7. Edit a page on your SharePoint 2013 site and try sorting web parts to verify that the script is working.
+
+#### Using the solution on-premise
+
+1. Get the latest stable version of the included solution, found under:
+   [`/bin/vs/SP.SortableWebParts.zip`](https://github.com/habaneroconsulting/sp-sortablewebparts/raw/master/bin/vs/SP.SortableWebParts.zip),
+   and open it in Visual Stuido.
+2. Click on the project *SP.SortableWebParts* in the Solution Explorer, and under the Properties view,
+   enter your site collection URL in the Site URL field.
+3. Right click on the project *SP.SortableWebParts* and click deploy.
+4. If you published the project in the previous step, you will need to manually activate a site collection feature.
+    - Go to your site collection root and click on Site Settings.
+    - Click on Site Collection Features.
+    - Find the *SP.SortableWebParts Site* feature, and click Activate.
+5. Edit a page on your SharePoint 2013 site and try sorting web parts to verify that the script is working.
+
+#### Using the solution for Office 365
+
+1. Get the latest stable version of the included solution, found under:
+   [`/bin/vs/SP.SortableWebParts.zip`](https://github.com/habaneroconsulting/sp-sortablewebparts/raw/master/bin/vs/SP.SortableWebParts.zip),
+   and open it in Visual Stuido.
+2. Right click on the project *SP.SortableWebParts*, click Publish, and sign-in if needed.
+3. After publishing, go to the Solution Gallery and find the solution *SP.SortableWebParts*.
+4. Click on the dropdown, then click Activate. Once the modal dialog appears, click Activate in the ribbon.
+5. Edit a page on your SharePoint 2013 site and try sorting web parts to verify that the script is working.
 
 #### Tip
 
-You may already include jQuery and/or jQuery UI in your solution. If you do, remove them to save bandwidth and
-extra HTTP requests.
+You may already include jQuery and/or jQuery UI in your solution. If you do, remove the references to them in
+the solution to save bandwidth and extra HTTP requests.
 
 ## Support
 
