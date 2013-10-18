@@ -1,14 +1,14 @@
 # Sortable Web Parts for SharePoint
 
-While SharePoint 2013 officially supports non-Internet Explorer browsers, some of their legacy features still are using ActiveX. Unfortunately for non-Internet Explorer users, this means that these features aren't available. One particular feature that is unavailable is sortable (drag and drop) web parts while editing a page.
+While SharePoint 2013 officially supports non-Internet Explorer browsers, some of their legacy features still are using ActiveX. For non-Internet Explorer users, this means that these features are not yet available. One particular feature that is unavailable is sorting (drag and drop) web parts while editing a page.
 
 ## How It Works
 
-Adding sortable web parts requires reimplementing the [`dragdrop`](http://msdn.microsoft.com/en-us/library/4k1s9s90.aspx) ActiveX control which SharePoint uses for sorting web parts. However, rather than just implementing the one function in JavaScript, it is easier to replace the entire piece of funtionality using [jQuery UI's Sortable](http://jqueryui.com/sortable/) plugin.
+Adding sortable web parts requires re-implementing the [`dragdrop`](http://msdn.microsoft.com/en-us/library/4k1s9s90.aspx) ActiveX control which SharePoint uses for sorting web parts. However, rather than just implementing the one function in JavaScript, it is easier to replace the entire piece of functionality using [jQuery UI's Sortable](http://jqueryui.com/sortable/) plugin.
 
 ## Getting Started
 
-This functionality can be adding to your SharePoint 2013 solution in two ways: by adding the functionality to your browser via a [bookmarklet](http://en.wikipedia.org/wiki/Bookmarklet), or by adding the script into your solution.
+This functionality can be adding to your SharePoint 2013 solution in multiple ways: by adding the functionality to your browser via a [bookmarklet](http://en.wikipedia.org/wiki/Bookmarklet), or by adding the script into your solution.
 
 ### Using it as a bookmarklet
 
@@ -16,7 +16,7 @@ This functionality can be adding to your SharePoint 2013 solution in two ways: b
 
         javascript:(function(){;function e(){r++,o===r&&t()}function t(){!function(e,t,o,r){"use strict";var i,n={},a={placeholder:".ui-sortable-placeholder",webpart:".ms-webpartzone-cell",zone:".ms-SPZone"},p="MSOZone_EmptyZoneCell",s=a.placeholder+" + "+a.webpart+", "+a.placeholder+" + #"+p;n.prototypeSetup=function(){HTMLDivElement.prototype.swapNode=function(t){var o=e(t);o.attr("style",""),this.outerHTML=t.outerHTML,o.remove()},HTMLDivElement.prototype.removeNode=function(){return!1}},n.setup=function(){n.prototypeSetup(),i={body:e("body"),webpartZone:e(a.zone),webparts:e(a.webpart)},i.webpartZone.sortable({connectWith:a.zone,handle:"span.js-webpart-titleCell",items:a.webpart}),i.webparts.on("mouseup",function(){var o=e(a.placeholder)[0],r=o.previousElementSibling;o&&r.id===p&&o.parentNode.insertBefore(o,r);var n=e(s)[0];n&&(t.MSOLayout_zoneDragOver=i.body[0],t.MSOLayout_currentDragMode="move",t.MSOLayout_iBar.setAttribute("goodDrop",!0),t.MSOLayout_MoveWebPart(this,n))})},n.isEditMode=function(){var t,o,r;return o="1"===e("#MSOLayout_InDesignMode").val(),r="Edit"===e("#_wikiPageMode").val(),t=o||r},n.init=function(){HTMLDivElement.prototype.dragDrop===r&&n.isEditMode()&&e().sortable&&n.setup()},e(n.init)}(jQuery,window,document)}var o=0,r=0;o+=2;for(var i=["https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js","https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"],n=["jquery-min","jquery-ui-min"],a=0;a<i.length;a++){var p=i[a],s=document.createElement("script");s.src=p,s.id=n[a],s.type="text/javascript",s.onload=e,document.body.appendChild(s)}t();;})()
 2. On a SharePoint 2013 page, edit the page.
-3. Click on the *Sortable Web Pwearts* bookmark in your bookmark bar.
+3. Click on the *Sortable Web Parts* bookmark in your bookmark bar.
 4. Try sorting web parts to verify that the script is working.
 
 ### Installing it in your SharePoint 2013 solution
