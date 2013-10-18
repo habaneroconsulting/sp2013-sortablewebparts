@@ -84,6 +84,9 @@ module.exports = function(grunt) {
 			plugin: {
 				files: {
 					'<%= dirs.plugin %>/<%= files.plugin %>': ['<%= dirs.src %>/<%= files.main %>']
+				},
+				options: {
+					preserveComments: 'some'
 				}
 			}
 		},
