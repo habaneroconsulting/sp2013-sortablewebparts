@@ -127,6 +127,9 @@
 		}
 	};
 
-	module.init();
+
+	// Wait until DOM ready since elements in isEditMode might not
+	// be ready yet.
+	$(module.init);
 
 })(jQuery, window, document);
