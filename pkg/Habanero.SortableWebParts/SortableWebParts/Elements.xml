@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Scripts" Url="Style Library/Scripts">
+    <File Path="SortableWebParts\Scripts\sp-sortablewebparts.min.js" Url="sp-sortablewebparts.min.js" />
+    <File Path="SortableWebParts\Scripts\vendor\jquery-1.10.2.min.js" Url="vendor/jquery-1.10.2.min.js" />
+    <File Path="SortableWebParts\Scripts\vendor\jquery-ui-1.10.3.custom.min.js" Url="vendor/jquery-ui-1.10.3.custom.min.js" />
+  </Module>
+
+  <Control
+		 Id="AdditionalPageHead"
+		 Sequence="1000"
+		 ControlClass="Habanero.SortableWebParts.WebControls.ScriptRegistration"
+		 ControlAssembly="Habanero.SortableWebParts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e59d867082543038" />
+</Elements>
