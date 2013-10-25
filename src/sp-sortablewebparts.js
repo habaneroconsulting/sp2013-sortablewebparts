@@ -24,21 +24,24 @@
 	 * like-for-like, just adding in code to make our script work.
 	 */
 	module.prototypeSetup = function () {
-		// Updating this could break other uses of this call, but none are found
 		HTMLDivElement.prototype.swapNode = function (original) {
-			var $original = $(original);
+			if (original === null) {
+				return false;
+			}
 
-			// Remove the custom styling added by the sortable plugin
-			$original.attr('style', '');
+			var tempNode = this.parentNode.insertBefore(document.createTextNode(''), this);
 
-			// Rather than swap and remove, we're just going to make this new
-			// element equal to the old one
-			this.outerHTML = original.outerHTML;
-			$original.remove();
+			original.parentNode.insertBefore(this, original);
+			tempNode.parentNode.insertBefore(original, tempNode);
+			tempNode.parentNode.removeChild(tempNode);
+
+			return this;
 		};
 
 		// Remove is done in the swap node function above this
-		HTMLDivElement.prototype.removeNode = function () { return false; };
+		HTMLDivElement.prototype.removeNode = function (bool) {
+			this.parentNode.removeChild(this);
+		};
 	};
 
 	/**
@@ -50,10 +53,10 @@
 		// Cache the various jQuery elements we need
 		elements = {
 			body: $('body'),
-			webpartZone: $(classes.zone),
-			webparts: $(classes.webpart)
+			webparts: $(classes.webpart),
+			webpartZone: $(classes.zone)
 		};
-		
+
 		// Initialise the jQuery UI Sortable plugin
 		// Note that we are not using any of the callback functions
 		// In fact we remove the node even before it is dropped
@@ -68,16 +71,20 @@
 		// happens after the element is inserted in its new position.
 		// MoveWebPart requires the moving web part to be in its original spot,
 		// first.
-		elements.webparts.on('mouseup', function () {
+		elements.body.on('mouseup', classes.webpart, function () {
 			// Check to see if the empty web part is previous to the dropped
 			// item. This is needed since on empty web part zones, web parts
 			// that are moved into the zone are put below both the "Add a Web
 			// Part" and empty web part divs.
 			var placeholder = $(classes.placeholder)[0],
+				previouSibling;
+
+			if (placeholder) {
 				previouSibling = placeholder.previousElementSibling;
 
-			if (placeholder && previouSibling.id === emptyWebpartId) {
-				placeholder.parentNode.insertBefore(placeholder, previouSibling);
+				if (previouSibling && previouSibling.id === emptyWebpartId) {
+					placeholder.parentNode.insertBefore(placeholder, previouSibling);
+				}
 			}
 
 			// Select the destination spot, which can be a web part, or an empty
@@ -87,13 +94,16 @@
 			if (destination) {
 				// These three global variables are set by the various drag and
 				// drop functions on the elements. We mock the values for now.
-				window.MSOLayout_zoneDragOver = elements.body[0];
 				window.MSOLayout_currentDragMode = 'move';
 				window.MSOLayout_iBar.setAttribute('goodDrop', true);
+				window.MSOLayout_oDropLocation = destination;
+				window.MSOLayout_zoneDragOver = $(destination).parents('.ms-SPZone')[0];
 
 				// This function reorders the web parts and saves their position
 				window.MSOLayout_MoveWebPart(this, destination);
 			}
+
+			this.setAttribute('style', '');
 		});
 	};
 
