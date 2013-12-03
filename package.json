@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-bookmarklet-thingy": "https://github.com/cwparsons/grunt-bookmarklet-thingy/tarball/b418473eaf127344041d7700174094fa4763fef1",
+    "grunt-bookmarklet-thingy": "https://github.com/habaneroconsulting/grunt-bookmarklet-thingy/tarball/b418473eaf127344041d7700174094fa4763fef1",
     "grunt-contrib-jshint": "~0.6.4",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-uglify": "~0.2.4",
