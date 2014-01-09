@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/habaneroconsulting/sp-sortablewebparts.git"
+    "url": "https://github.com/habaneroconsulting/sp2013-sortablewebparts.git"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
