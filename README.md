@@ -64,9 +64,9 @@ Otherwise, you can contact the author over Twitter at [@cwlparsons](https://twit
 
 1. Install [NodeJS](http://nodejs.org/).
 
-2. Install Grunt and Grunt CLI.
+2. Install Grunt CLI globally.
 
-        npm -g install grunt grunt-cli
+        npm install grunt-cli -g
 3. Run `npm install` from command line at root project folder.
     This will read the *package.json* file and pull in all required node modules and put into a directory called *node_modules*. This directory is generated so it can be deleted and should not be checked into source control. If deleted running `npm install` will re-create it.
 4. Use `grunt` to build:
@@ -77,7 +77,7 @@ Otherwise, you can contact the author over Twitter at [@cwlparsons](https://twit
 
 ## License
 
-Copyright (c) 2013 [Habanero Consulting Group](http://www.habaneroconsulting.com)
+Copyright (c) 2015 [Habanero Consulting Group](http://www.habaneroconsulting.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
 
